@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class SkyrootSaplingGenerator extends SaplingGenerator {
+public class BlueSkyrootSaplingGenerator extends SaplingGenerator {
     @Override
     protected @Nullable ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bl) {
         return AetherConfiguredFeatures.BLUE_SKYROOT_TREE;
