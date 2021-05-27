@@ -161,6 +161,7 @@ public class AetherBlocks {
     public static final Block SKYROOT_TRAPDOOR;
     public static final Block POTTED_SKYROOT_SAPLING;
     public static final Block SKYROOT_LEAVES;
+    public static final Block BLUE_SKYROOT_LEAVES;
     public static final Block SKYROOT_LEAF_PILE;
     public static final Block STRIPPED_SKYROOT_LOG;
     public static final Block GOLDEN_OAK_SAPLING;
@@ -397,6 +398,7 @@ public class AetherBlocks {
         SKYROOT_LOG = register("skyroot_log", createLogBlock(MaterialColor.GREEN, MaterialColor.WOOD), buildingBlock());
         STRIPPED_SKYROOT_LOG = register("stripped_skyroot_log", createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD), buildingBlock());
         SKYROOT_LEAVES = register("skyroot_leaves", createLeavesBlock(), buildingBlock());
+        BLUE_SKYROOT_LEAVES = register("blue_skyroot_leaves", createLeavesBlock(), buildingBlock());
         SKYROOT_LEAF_PILE = register("skyroot_leaf_pile", new AetherLeafPileBlock(createLeafPileBlock(BlockSoundGroup.VINE)), buildingBlock());
 
         final FabricBlockSettings SKYROOT_WOOD = FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD);
