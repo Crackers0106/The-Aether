@@ -93,24 +93,26 @@ public class AetherConfiguredFeatures {
 
         public static final RandomFeatureConfig SCATTERED_TREES_CONFIG = new RandomFeatureConfig(
                 ImmutableList.of(Feature.TREE.configure(FANCY_SKYROOT_CONFIG).withChance(0.05F), Feature.TREE.configure(ROSE_WISTERIA_CONFIG).withChance(0.002F)),
-                Feature.TREE.configure(Configs.SKYROOT_CONFIG)
+                Feature.TREE.configure(Configs.SKYROOT_CONFIG),Feature.TREE.configure(Configs.BLUE_SKYROOT_CONFIG)
         );
 
         public static final RandomFeatureConfig THICKET_TREES_CONFIG = new RandomFeatureConfig(
                 ImmutableList.of(Feature.TREE.configure(ROSE_WISTERIA_CONFIG).withChance(0.0001F), Feature.TREE.configure(LAVENDER_WISTERIA_CONFIG).withChance(0.0001F), Feature.TREE.configure(GOLDEN_OAK_CONFIG).withChance(0.0025F), Feature.TREE.configure(SKYROOT_CONFIG).withChance(0.1F)),
-                Feature.TREE.configure(Configs.FANCY_SKYROOT_CONFIG)
+                Feature.TREE.configure(Configs.FANCY_SKYROOT_CONFIG), Feature.TREE.configure(BLUE_SKYROOT_CONFIG).withChance(0.02F)
         );
 
         public static final RandomFeatureConfig RAINBOW_FOREST_CONFIG = new RandomFeatureConfig(
                 ImmutableList.of(Feature.TREE.configure(LAVENDER_WISTERIA_CONFIG).withChance(0.33F), Feature.TREE.configure(ROSE_WISTERIA_CONFIG).withChance(0.075F), Feature.TREE.configure(FROST_WISTERIA_CONFIG).withChance(0.0001F), Feature.TREE.configure(SKYROOT_CONFIG).withChance(0.1F)),
-                Feature.TREE.configure(Configs.ROSE_WISTERIA_CONFIG)
+                Feature.TREE.configure(Configs.ROSE_WISTERIA_CONFIG), Feature.TREE.configure(Configs.BLUE_SKYROOT_CONFIG).withChance(0.02F)
         );
 
         public static final RandomFeatureConfig SPARSE_TREES_CONFIG = new RandomFeatureConfig(
                 ImmutableList.of(
                         Feature.TREE.configure(SKYROOT_CONFIG).withChance(0.1F)
+                        Feature.TREE.configure(BLUE_SKYROOT_CONFIG).withChance(0.02F)
                 ),
                 Feature.TREE.configure(Configs.SKYROOT_CONFIG)
+                Feature.TREE.configure(Configs.BLUE_SKYROOT_CONFIG)
         );
     }
 }
