@@ -107,12 +107,8 @@ public class AetherConfiguredFeatures {
         );
 
         public static final RandomFeatureConfig SPARSE_TREES_CONFIG = new RandomFeatureConfig(
-                ImmutableList.of(
-                        Feature.TREE.configure(SKYROOT_CONFIG).withChance(0.1F)
-                        Feature.TREE.configure(BLUE_SKYROOT_CONFIG).withChance(0.02F)
-                ),
-                Feature.TREE.configure(Configs.SKYROOT_CONFIG)
-                Feature.TREE.configure(Configs.BLUE_SKYROOT_CONFIG)
+                ImmutableList.of(Feature.TREE.configure(SKYROOT_CONFIG).withChance(0.1F), Feature.TREE.configure(BLUE_SKYROOT_CONFIG).withChance(0.02F)),
+                Feature.TREE.configure(Configs.SKYROOT_CONFIG), Feature.TREE.configure(Configs.BLUE_SKYROOT_CONFIG)
         );
     }
 }
