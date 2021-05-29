@@ -13,7 +13,7 @@
             "whitelist": [
             ],
             "blacklist": [],
-            "tries": 42,
+            "tries": 30,
             "state_provider": {
               "state": {
                 "Name": "the_aether:blueberry_bush",

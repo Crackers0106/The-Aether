@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class ColdAercloudBlock extends BaseAercloudBlock {
 
     public ColdAercloudBlock() {
-        super(FabricBlockSettings.of(Material.SNOW_BLOCK).sounds(BlockSoundGroup.SNOW));
+        super(FabricBlockSettings.of(Material.SNOW_BLOCK).sounds(BlockSoundGroup.SNOW).nonOpaque());
     }
 
     @Override

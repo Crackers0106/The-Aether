@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class BlueAercloudBlock extends BaseAercloudBlock {
 
     public BlueAercloudBlock() {
-        super(FabricBlockSettings.of(Material.SNOW_BLOCK, MaterialColor.LIGHT_BLUE).sounds(BlockSoundGroup.SNOW));
+        super(FabricBlockSettings.of(Material.SNOW_BLOCK, MaterialColor.LIGHT_BLUE).sounds(BlockSoundGroup.SNOW).nonOpaque());
     }
 
     @Override

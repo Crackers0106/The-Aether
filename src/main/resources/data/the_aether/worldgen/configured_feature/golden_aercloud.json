@@ -22,7 +22,7 @@
         "inner": {
           "type": "minecraft:chance",
           "config": {
-            "chance": 60
+            "chance": 25
           }
         }
       }

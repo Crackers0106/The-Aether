@@ -55,7 +55,6 @@ public class Aether implements ModInitializer, ClientModInitializer {
         AetherItems.initClient();
         AetherModelPredicates.init();
         AetherArmorModels.registerArmorModels();
-        AetherColorProvs.initClient();
         AetherEntityRenderers.initClient();
         AetherBlocks.initClient();
         AetherParticles.initClient();

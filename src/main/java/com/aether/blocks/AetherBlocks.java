@@ -298,15 +298,15 @@ public class AetherBlocks {
         CARVED_STAIRS = register("carved_stairs", new AetherStairsBlock(CARVED_STONE.getDefaultState()), buildingBlock());
         CARVED_WALL = register("carved_wall", new AetherWallBlock(CARVED_STONE.getDefaultState()), buildingBlock());
 //        CHEST_MIMIC = register("chest_mimic", null);
-        COLD_AERCLOUD = register("cold_aercloud", new ColdAercloudBlock(FabricBlockSettings.nonOpaque().solidBlock(AetherBlocks::never)), buildingBlock());
-        BLUE_AERCLOUD = register("blue_aercloud", new BlueAercloudBlock(FabricBlockSettings.nonOpaque().solidBlock(AetherBlocks::never)), buildingBlock());
-        PINK_AERCLOUD = register("pink_aercloud", new PinkAercloudBlock(FabricBlockSettings.nonOpaque().solidBlock(AetherBlocks::never)), buildingBlock());
+        COLD_AERCLOUD = register("cold_aercloud", new ColdAercloudBlock(), buildingBlock());
+        BLUE_AERCLOUD = register("blue_aercloud", new BlueAercloudBlock(), buildingBlock());
+        PINK_AERCLOUD = register("pink_aercloud", new PinkAercloudBlock(), buildingBlock());
 //        CYAN_DYED_AERCLOUD = register("cyan_dyed_aercloud", null);
 //        DECORATED_HOLIDAY_LEAVES = register("decorated_holiday_leaves", null);
 //        ENCHANTED_GRAVITITE = register("enchanted_gravitite", null);
 //        ENCHANTER = register("enchanter", null);
 //        FREEZER = register("freezer", null);
-        GOLDEN_AERCLOUD = register("golden_aercloud", new GoldenAercloudBlock(FabricBlockSettings.nonOpaque().solidBlock(AetherBlocks::never)), buildingBlock());
+        GOLDEN_AERCLOUD = register("golden_aercloud", new GoldenAercloudBlock(), buildingBlock());
         DENSE_AERCLOUD_STILL = Registry.register(Registry.FLUID, Aether.locate("dense_aercloud"), new DenseAercloudFluid());
         DENSE_AERCLOUD = register("dense_aercloud", new FluidBlock(DENSE_AERCLOUD_STILL, AbstractBlock.Settings.of(Material.WATER).noCollision().strength(100.0F).dropsNothing()) {
         });
