@@ -36,10 +36,10 @@ public class AxeItemMixin extends MiningToolItem {
         BlockPos blockPos = context.getBlockPos();
         BlockState blockState = world.getBlockState(blockPos);
         Map<Block, Block> AETHER_STRIPPED_BLOCKS = new HashMap<>();
-        AETHER_STRIPPED_BLOCKS.put(AetherBlocks.CRYSTAL_LOG, AetherBlocks.STRIPPED_CRYSTAL_LOG);
+//      AETHER_STRIPPED_BLOCKS.put(AetherBlocks.CRYSTAL_LOG, AetherBlocks.STRIPPED_CRYSTAL_LOG);
         AETHER_STRIPPED_BLOCKS.put(AetherBlocks.GOLDEN_OAK_LOG, AetherBlocks.STRIPPED_GOLDEN_OAK_LOG);
         AETHER_STRIPPED_BLOCKS.put(AetherBlocks.SKYROOT_LOG, AetherBlocks.STRIPPED_SKYROOT_LOG);
-        AETHER_STRIPPED_BLOCKS.put(AetherBlocks.WISTERIA_LOG, AetherBlocks.STRIPPED_WISTERIA_LOG);
+//      AETHER_STRIPPED_BLOCKS.put(AetherBlocks.WISTERIA_LOG, AetherBlocks.STRIPPED_WISTERIA_LOG);
 
         Block block = AETHER_STRIPPED_BLOCKS.get(blockState.getBlock());
 

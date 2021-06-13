@@ -1,56 +1,45 @@
 {
-  "bedrock_roof_position": -20,
-  "bedrock_floor_position": -20,
+  "bedrock_roof_position": -10,
+  "bedrock_floor_position": -10,
   "sea_level": 0,
   "disable_mob_generation": false,
-  "structures": {
-    "structures": {
-      "the_aether:well": {
-        "spacing": 10,
-        "separation": 1,
-        "salt": 213769
-      },
-      "the_aether:skyroot_tower": {
-        "spacing": 10,
-        "separation": 1,
-        "salt": 4208012
-      }
-    }
-  },
   "default_block": {
     "Name": "the_aether:holystone"
   },
   "default_fluid": {
     "Name": "minecraft:water",
     "Properties": {
-      "level": "8"
+      "level": "0"
     }
   },
   "noise": {
     "height": 128,
-    "size_horizontal": 2,
-    "size_vertical": 1,
     "density_factor": 0,
     "density_offset": 0,
+    "size_horizontal": 2,
+    "size_vertical": 2,
     "simplex_surface_noise": false,
     "random_density_offset": false,
     "island_noise_override": false,
     "amplified": false,
     "sampling": {
-      "xz_scale": 1.8,
-      "xz_factor": 60,
-      "y_scale": 1.0,
-      "y_factor": 90
-    },
-    "top_slide": {
-      "target": -16,
-      "size": 20,
-      "offset": 4
+      "xz_scale": 2,
+      "y_scale": 1,
+      "xz_factor": 80,
+      "y_factor": 80
     },
     "bottom_slide": {
-      "target": -20,
-      "size": 8,
-      "offset": 0
+      "target": -30,
+      "size": 7,
+      "offset": 1
+    },
+    "top_slide": {
+      "target": -30,
+      "size": 7,
+      "offset": 1
     }
+  },
+  "structures": {
+    "structures": {}
   }
 }

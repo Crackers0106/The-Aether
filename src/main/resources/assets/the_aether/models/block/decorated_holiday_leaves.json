@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "the_aether:block/decorated_holiday_leaves"
+  }
+}

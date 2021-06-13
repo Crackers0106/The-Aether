@@ -1,0 +1,31 @@
+{
+  "parent": "the_aether:enter_aether",
+  "display": {
+    "icon": {
+      "item": "the_aether:blue_aercloud"
+    },
+    "title": {
+      "text": "To infinity and beyond!"
+    },
+    "description": {
+      "text": "Bounce on a Blue Aercloud"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "to_infinity_and_beyond": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "the_aether:blue_aercloud"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "to_infinity_and_beyond"
+    ]
+  ]
+}

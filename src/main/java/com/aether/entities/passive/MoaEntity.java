@@ -46,8 +46,8 @@ public class MoaEntity extends SaddleMountEntity implements JumpingMount {
     public static final TrackedData<Boolean> PLAYER_GROWN = DataTracker.registerData(MoaEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> HUNGRY = DataTracker.registerData(MoaEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> SITTING = DataTracker.registerData(MoaEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public float curWingRoll, curWingYaw, curLegPitch;
-    protected int maxJumps, secsUntilHungry, secsUntilEgg;
+    public float wingRotation, destPos, prevDestPos, prevWingRotation;
+    protected int maxJumps, secsUntilHungry, ticksUntilFlap, secsUntilEgg;
     public float jumpStrength;
     public boolean isInAir;
 
@@ -104,39 +104,76 @@ public class MoaEntity extends SaddleMountEntity implements JumpingMount {
         this.dataTracker.startTracking(SITTING, false);
     }
 
-    public float getWingRoll() {
-        if(!isGliding()) {
-            float baseWingRoll = 1.39626F;
+    @Override
+    public void tick() {
+        super.tick();
 
-            float lDif = -baseWingRoll - curWingRoll;
-            if(Math.abs(lDif) > 0.005F) {
-                curWingRoll += lDif / 6;
+        if (!this.onGround && this.getVelocity().y < 0.0D)
+            this.setVelocity(this.getVelocity().multiply(1.0D, 0.6D, 1.0D));
+
+        if (!this.onGround) {
+            if (this.ticksUntilFlap == 0) {
+                this.world.playSound(null, new BlockPos(this.getPos()), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.15F, MathHelper.clamp(this.random.nextFloat(), 0.7f, 1.0f) + MathHelper.clamp(this.random.nextFloat(), 0f, 0.3f));
+
+                this.ticksUntilFlap = 8;
+            } else {
+                this.ticksUntilFlap--;
             }
         }
-        else {
-            curWingRoll = (MathHelper.sin(age / 1.75F) * 0.725F + 0.1F);
+
+        this.prevWingRotation = this.wingRotation;
+        this.prevDestPos = this.destPos;
+
+        this.destPos += 0.2F;
+        this.destPos = Math.min(1.0F, Math.max(0.01F, this.destPos));
+
+        if (this.onGround) this.destPos = 0.0F;
+
+        this.wingRotation += 1.233F;
+
+        isInAir = !onGround;
+
+        if(isInAir)
+            dataTracker.set(AIR_TICKS, dataTracker.get(AIR_TICKS) + 1);
+        else
+            dataTracker.set(AIR_TICKS, 0);
+
+        if (age % 15 == 0) {
+            if(isGliding()) {
+                this.world.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_PHANTOM_FLAP, SoundCategory.NEUTRAL, 4.5F, MathHelper.clamp(this.random.nextFloat(), 0.85f, 1.2f) + MathHelper.clamp(this.random.nextFloat(), 0f, 0.35f));
+            }
+            else if(random.nextFloat() < 0.057334F) {
+                this.world.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_PARROT_AMBIENT, SoundCategory.NEUTRAL, 1.5F + random.nextFloat() * 2, MathHelper.clamp(this.random.nextFloat(), 0.55f, 0.7f) + MathHelper.clamp(this.random.nextFloat(), 0f, 0.25f));
+            }
         }
-        return curWingRoll;
-    }
 
-    public float getWingYaw() {
-        float baseWingYaw = isGliding() ? 0.95626F : 0.174533F;
+        this.setMaxJumps(this.getMoaType().getMoaProperties().getMaxJumps());
 
-        float lDif = -baseWingYaw - curWingYaw;
-        if(Math.abs(lDif) > 0.005F) {
-            curWingYaw += lDif / 12.75;
+        if (this.jumping) this.setVelocity(this.getVelocity().add(0.0D, 0.05D, 0.0D));
+
+        this.fall();
+
+        if (this.secsUntilHungry > 0) {
+            if (this.age % 20 == 0) this.secsUntilHungry--;
+        } else if (!this.isHungry()) {
+            this.setHungry(true);
         }
-        return curWingYaw;
-    }
 
-    public float getLegPitch() {
-        float baseLegPitch = isGliding() ? -1.5708F : 0.0174533F;
-
-        float lDif = -baseLegPitch - curLegPitch;
-        if(Math.abs(lDif) > 0.005F) {
-            curLegPitch += lDif / 6;
+        if (this.world.isClient && this.isHungry() && this.isBaby()) {
+            if (this.random.nextInt(10) == 0)
+                this.world.addParticle(ParticleTypes.ANGRY_VILLAGER, this.getX() + (this.random.nextDouble() - 0.5D) * (double) this.getWidth(), this.getY() + 1, this.getZ() + (this.random.nextDouble() - 0.5D) * (double) this.getWidth(), 0.0D, 0.0D, 0.0D);
         }
-        return curLegPitch;
+
+        if (!this.world.isClient && !this.isBaby() && this.getPassengerList().isEmpty()) {
+            if (this.secsUntilEgg > 0) {
+                if (this.age % 20 == 0) this.secsUntilEgg--;
+            } else {
+                this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+                this.dropStack(MoaEgg.getStack(this.getMoaType()), 0);
+
+                this.secsUntilEgg = this.getRandomEggTime();
+            }
+        }
     }
 
     public int getRandomEggTime() {
@@ -206,55 +243,6 @@ public class MoaEntity extends SaddleMountEntity implements JumpingMount {
     @Override
     protected void playHurtSound(DamageSource source) {
         this.world.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_BAT_DEATH, SoundCategory.NEUTRAL, 0.225F, MathHelper.clamp(this.random.nextFloat(), 0.5f, 0.7f) + MathHelper.clamp(this.random.nextFloat(), 0f, 0.15f));
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-
-        isInAir = !onGround;
-
-        if(isInAir)
-            dataTracker.set(AIR_TICKS, dataTracker.get(AIR_TICKS) + 1);
-        else
-            dataTracker.set(AIR_TICKS, 0);
-
-        if (age % 15 == 0) {
-            if(isGliding()) {
-                this.world.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_PHANTOM_FLAP, SoundCategory.NEUTRAL, 4.5F, MathHelper.clamp(this.random.nextFloat(), 0.85f, 1.2f) + MathHelper.clamp(this.random.nextFloat(), 0f, 0.35f));
-            }
-            else if(random.nextFloat() < 0.057334F) {
-                this.world.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_PARROT_AMBIENT, SoundCategory.NEUTRAL, 1.5F + random.nextFloat() * 2, MathHelper.clamp(this.random.nextFloat(), 0.55f, 0.7f) + MathHelper.clamp(this.random.nextFloat(), 0f, 0.25f));
-            }
-        }
-
-        this.setMaxJumps(this.getMoaType().getMoaProperties().getMaxJumps());
-
-        if (this.jumping) this.setVelocity(this.getVelocity().add(0.0D, 0.05D, 0.0D));
-
-        this.fall();
-
-        if (this.secsUntilHungry > 0) {
-            if (this.age % 20 == 0) this.secsUntilHungry--;
-        } else if (!this.isHungry()) {
-            this.setHungry(true);
-        }
-
-        if (this.world.isClient && this.isHungry() && this.isBaby()) {
-            if (this.random.nextInt(10) == 0)
-                this.world.addParticle(ParticleTypes.ANGRY_VILLAGER, this.getX() + (this.random.nextDouble() - 0.5D) * (double) this.getWidth(), this.getY() + 1, this.getZ() + (this.random.nextDouble() - 0.5D) * (double) this.getWidth(), 0.0D, 0.0D, 0.0D);
-        }
-
-        if (!this.world.isClient && !this.isBaby() && this.getPassengerList().isEmpty()) {
-            if (this.secsUntilEgg > 0) {
-                if (this.age % 20 == 0) this.secsUntilEgg--;
-            } else {
-                this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-                this.dropStack(MoaEgg.getStack(this.getMoaType()), 0);
-
-                this.secsUntilEgg = this.getRandomEggTime();
-            }
-        }
     }
 
     @Override

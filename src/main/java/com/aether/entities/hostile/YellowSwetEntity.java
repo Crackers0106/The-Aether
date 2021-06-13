@@ -5,6 +5,6 @@ import net.minecraft.world.World;
 
 public class YellowSwetEntity extends SwetEntity{
     public YellowSwetEntity(World world){
-        super(AetherEntityTypes.YELLOW_SWET, world);
+        super(AetherEntityTypes.GOLDEN_SWET, world);
     }
 }

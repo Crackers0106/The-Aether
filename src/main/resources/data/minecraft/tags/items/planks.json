@@ -8,7 +8,6 @@
     "minecraft:acacia_planks",
     "minecraft:dark_oak_planks",
     "minecraft:crimson_planks",
-    "minecraft:warped_planks",
-    "#the_aether:aether_planks"
+    "minecraft:warped_planks"
   ]
 }

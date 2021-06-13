@@ -6,31 +6,32 @@ import com.aether.entities.passive.MoaEntity;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
 
 public class MoaRenderer extends MobEntityRenderer<MoaEntity, MoaModel> {
 
-    public MoaRenderer(EntityRenderDispatcher renderManager) {
-        super(renderManager, new MoaModel(), 1f);
+    private static final Identifier TEXTURE = Aether.locate("textures/entity/moas/highlands/blue.png");
+
+    public MoaRenderer(EntityRenderDispatcher rendermanagerIn) {
+        super(rendermanagerIn, new MoaModel(), 1.0F);
     }
 
     @Override
-    protected void scale(MoaEntity moa, MatrixStack matrixStack, float partialTicks) {
-        float moaScale = moa.isBaby() ? 0.3334F : 1.0F;
-        matrixStack.scale(moaScale, moaScale, moaScale);
+    protected float getAnimationProgress(MoaEntity moa, float f) {
+        float f1 = moa.prevWingRotation + (moa.wingRotation - moa.prevWingRotation) * f;
+        float f2 = moa.prevDestPos + (moa.destPos - moa.prevDestPos) * f;
+
+        return (MathHelper.sin(f1) + 1.0F) * f2;
     }
 
     @Override
-    public Identifier getTexture(MoaEntity entity) {
+    protected void scale(MoaEntity moa, MatrixStack matrices, float f) {
+        matrices.scale(1.8F, 1.8F, 1.8F);
+    }
 
-        if (entity.hasPassengers() && entity.getPassengerList().get(0) instanceof PlayerEntity) {
-//            IPlayerAether player = AetherAPI.get((PlayerEntity) entity.getPassengerList().get(0));
-
-//            if (player instanceof PlayerAether && !((PlayerAether) player).donationPerks.getMoaSkin().shouldUseDefualt())
-//                return null;
-        }
-
-        return Aether.locate("textures/entity/moas/highlands/blue.png");
+    @Override
+    public Identifier getTexture(MoaEntity moa) {
+        return TEXTURE;
     }
 }

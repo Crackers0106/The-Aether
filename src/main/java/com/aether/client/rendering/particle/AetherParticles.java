@@ -11,9 +11,11 @@ import net.minecraft.util.registry.Registry;
 public class AetherParticles {
 
     public static final DefaultParticleType GOLDEN_OAK_LEAF;
+    public static final DefaultParticleType AETHER_PORTAL;
 
     static {
         GOLDEN_OAK_LEAF = Registry.register(Registry.PARTICLE_TYPE, Aether.locate("golden_leaf"), FabricParticleTypes.simple(true));
+        AETHER_PORTAL = Registry.register(Registry.PARTICLE_TYPE, Aether.locate("aether_portal"), FabricParticleTypes.simple(true));
     }
 
     public static void init() {
@@ -22,5 +24,6 @@ public class AetherParticles {
     @Environment(EnvType.CLIENT)
     public static void initClient() {
         ParticleFactoryRegistry.getInstance().register(GOLDEN_OAK_LEAF, GoldenOakLeafParticle.DefaultFactory::new);
+        ParticleFactoryRegistry.getInstance().register(AETHER_PORTAL, AetherPortalParticle.DefaultFactory::new);
     }
 }

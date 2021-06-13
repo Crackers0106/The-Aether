@@ -8,10 +8,10 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:stick"
+      "item": "the_aether:skyroot_stick"
     },
     "X": {
-      "item": "the_aether:gravitite_gemstone"
+      "item": "the_aether:enchanted_gravitite"
     }
   },
   "result": {

@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "the_aether:gravitite_ore"
   },
-  "result": "the_aether:gravitite_gemstone",
-  "experience": 1.0,
-  "cookingtime": 200
+  "result": "the_aether:enchanted_gravitite",
+  "experience": 0.0,
+  "cookingtime": 1000
 }

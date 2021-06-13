@@ -15,16 +15,18 @@ import net.minecraft.util.Identifier;
 
 public class PhygWingLayer extends FeatureRenderer<PhygEntity, PigEntityModel<PhygEntity>> {
 
-    private static final Identifier TEXTURE_WINGS = Aether.locate("textures/entity/phyg/wings.png");
-    private final PhygWingModel model = new PhygWingModel();
+    private static final Identifier TEXTURE = Aether.locate("textures/entity/phyg/wings.png");
+    private final PhygWingModel model;
 
     public PhygWingLayer(FeatureRendererContext<PhygEntity, PigEntityModel<PhygEntity>> context) {
         super(context);
+		this.model = new PhygWingModel();
     }
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, PhygEntity phyg, float limbAngle, float limbDistance, float tickDelta, float customAngle, float netHeadYaw, float headPitch) {
-        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(TEXTURE_WINGS));
+        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(TEXTURE));
+		this.model.setAngles(phyg, limbAngle, limbDistance, customAngle, netHeadYaw, headPitch);
         this.model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 

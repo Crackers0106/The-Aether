@@ -14,9 +14,9 @@ import com.aether.util.NetworkingHell;
 import com.aether.world.dimension.AetherDimension;
 import com.aether.world.feature.AetherConfiguredFeatures;
 import com.aether.world.feature.AetherFeatures;
-import com.aether.world.feature.tree.AetherTreeHell;
 import de.guntram.mcmod.crowdintranslate.CrowdinTranslate;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
@@ -36,7 +36,6 @@ public class Aether implements ModInitializer, ClientModInitializer {
     @Override
     public void onInitialize() {
         TrinketSlotRegistry.init();
-        AetherTreeHell.init();
         AetherFeatures.registerFeatures();
         AetherConfiguredFeatures.registerFeatures();
         AetherDimension.setupDimension();
@@ -46,6 +45,7 @@ public class Aether implements ModInitializer, ClientModInitializer {
         AetherMoaTypes.init();
         AetherParticles.init();
         NetworkingHell.init();
+		FuelRegistry.INSTANCE.add(AetherItems.AMBROSIUM_SHARD, 500);
     }
 
     @Override

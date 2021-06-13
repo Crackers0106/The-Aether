@@ -161,7 +161,8 @@ public class FloatingBlockEntity extends AetherNonLivingEntity {
                 }
             }
 
-            boolean isFastFloater = (this.blockState.getBlock() == AetherBlocks.GRAVITITE_ORE || this.blockState.getBlock() == AetherBlocks.GRAVITITE_LEVITATOR || this.blockState.getBlock() == AetherBlocks.BLOCK_OF_GRAVITITE);
+    //        boolean isFastFloater = (this.blockState.getBlock() == AetherBlocks.GRAVITITE_ORE || this.blockState.getBlock() == AetherBlocks.BLOCK_OF_GRAVITITE);
+			boolean isFastFloater = (this.blockState.getBlock() == AetherBlocks.GRAVITITE_ORE);
             if (!this.hasNoGravity()) {
                 if (isFastFloater) {
                     this.setVelocity(this.getVelocity().add(0.0D, 0.05D, 0.0D));

@@ -5,15 +5,15 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 
 public class AercloudConfig implements FeatureConfig {
 
-    public final BlockState state;
-    public final boolean isFlat;
-    public final int maxRadius;
-    public final int y;
+    private final BlockState state;
+    private final boolean isFlat;
+    private final int segmentCount;
+    private final int y;
 
     public AercloudConfig(BlockState state, boolean isFlat, int segmentCount, int y) {
         this.state = state;
         this.isFlat = isFlat;
-        this.maxRadius = segmentCount;
+        this.segmentCount = segmentCount;
         this.y = y;
     }
 
@@ -30,7 +30,7 @@ public class AercloudConfig implements FeatureConfig {
     }
 
     public int maxSegments() {
-        return this.maxRadius;
+        return this.segmentCount;
     }
 
     public boolean isFlat() {

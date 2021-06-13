@@ -40,7 +40,7 @@ public class CrystalTreeIslandFeature extends Feature<DefaultFeatureConfig> {
                         if (y == 0) {
                             this.setBlockState(structureWorldAccess, blockPos.add(x, y, z), AetherBlocks.AETHER_GRASS_BLOCK.getDefaultState());
                             if (random.nextInt(6) == 0) {
-                                this.setBlockState(structureWorldAccess, blockPos.add(x, y+1, z), AetherBlocks.AETHER_GRASS.getDefaultState());
+                                this.setBlockState(structureWorldAccess, blockPos.add(x, y+1, z), AetherBlocks.WHITE_FLOWER.getDefaultState());
                             }
                         } else if (y == -1) {
                             this.setBlockState(structureWorldAccess, blockPos.add(x, y, z), AetherBlocks.AETHER_DIRT.getDefaultState());
@@ -63,7 +63,7 @@ public class CrystalTreeIslandFeature extends Feature<DefaultFeatureConfig> {
 
         for (int y = 1; y < 9; y++) {
             this.generateTreeCircle(structureWorldAccess, random, blockPos.up(y), leafRadii[y-1], AetherBlocks.CRYSTAL_LEAVES.getDefaultState().with(AetherLeavesBlock.DISTANCE, 1));
-            this.setBlockState(structureWorldAccess, blockPos.up(y), AetherBlocks.CRYSTAL_LOG.getDefaultState());
+            this.setBlockState(structureWorldAccess, blockPos.up(y), AetherBlocks.SKYROOT_LOG.getDefaultState());
         }
 
         this.setBlockState(structureWorldAccess, blockPos.up(9), AetherBlocks.CRYSTAL_LEAVES.getDefaultState().with(AetherLeavesBlock.DISTANCE, 1));

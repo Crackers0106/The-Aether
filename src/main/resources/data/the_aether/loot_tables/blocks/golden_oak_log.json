@@ -5,8 +5,17 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "the_aether:golden_oak_log"
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "the_aether:skyroot_log"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "the_aether:golden_amber"
+            }
+          ]
         }
       ],
       "conditions": [

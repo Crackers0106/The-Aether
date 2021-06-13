@@ -12,37 +12,19 @@
             "zspread": 7,
             "whitelist": [],
             "blacklist": [],
-            "tries": 32,
+            "tries": 64,
             "state_provider": {
               "entries": [
                 {
                   "weight": 20,
                   "data": {
-                    "Name": "the_aether:ataraxia"
+                    "Name": "the_aether:purple_flower"
                   }
                 },
                 {
                   "weight": 20,
                   "data": {
-                    "Name": "the_aether:cloudsbluff"
-                  }
-                },
-                {
-                  "weight": 3,
-                  "data": {
-                    "Name": "the_aether:drigean"
-                  }
-                },
-                {
-                  "weight": 8,
-                  "data": {
-                    "Name": "the_aether:luminar"
-                  }
-                },
-                {
-                  "weight": 1,
-                  "data": {
-                    "Name": "the_aether:ancient_flower"
+                    "Name": "the_aether:purple_flower"
                   }
                 }
               ],

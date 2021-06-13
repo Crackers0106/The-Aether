@@ -23,7 +23,7 @@ public class PinkAercloudBlock extends BaseAercloudBlock {
     private static final ParticleEffect pinkFluff = new DustParticleEffect(0.89F, 0.65F, 0.9F, 1F);
 
     public PinkAercloudBlock() {
-        super(FabricBlockSettings.of(Material.SNOW_BLOCK, MaterialColor.PINK).sounds(BlockSoundGroup.SNOW).nonOpaque());
+        super(FabricBlockSettings.of(Material.SNOW_BLOCK, MaterialColor.PINK).sounds(BlockSoundGroup.SNOW));
     }
 
     @Override

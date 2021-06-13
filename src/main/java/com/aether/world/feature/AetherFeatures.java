@@ -1,6 +1,7 @@
 package com.aether.world.feature;
 
 import com.aether.Aether;
+import com.aether.world.feature.config.AercloudConfig;
 import com.aether.world.feature.generator.SkyrootTowerGenerator;
 import com.aether.world.feature.generator.WellGenerator;
 import com.aether.world.feature.structure.SkyrootTowerFeature;
@@ -16,17 +17,21 @@ import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 
 public class AetherFeatures {
+    public static final StructurePieceType WELL_PIECE = register(WellGenerator.WellPiece::new, "well");
+    public static final StructurePieceType SKYROOT_TOWER_PIECE = register(SkyrootTowerGenerator.TowerPiece::new, "skyroot_tower");
+    public static Feature<AercloudConfig> DEFAULT_AERCLOUD;
 
     public static void registerFeatures() {
         register("lake", new AetherLakeFeature(SingleStateFeatureConfig.CODEC));
-        register("aercloud", new AercloudFeature());
+        DEFAULT_AERCLOUD = register("default_aercloud", new AercloudFeature());
         register("quicksoil", new QuicksoilFeature());
         register("crystal_tree_island", new CrystalTreeIslandFeature(DefaultFeatureConfig.CODEC));
 
         // Decorators
         register("crystal_tree_island", new CrystalTreeIslandDecorator(NopeDecoratorConfig.CODEC));
 
-
+        register("well", new WellFeature(DefaultFeatureConfig.CODEC));
+        register("skyroot_tower", new SkyrootTowerFeature(DefaultFeatureConfig.CODEC));
     }
 
     private static <T extends FeatureConfig> void register(String id, StructureFeature<T> structure) {

@@ -1,0 +1,40 @@
+{
+  "parent": "the_aether:to_infinity_and_beyond",
+  "display": {
+    "icon": {
+      "item": "minecraft:saddle"
+    },
+    "title": {
+      "text": "When Phygs fly"
+    },
+    "description": {
+      "text": "Fly on a Phyg"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "mount_phyg": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "the_aether:phyg",
+              "nbt": "{Saddle:1}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mount_phyg"
+    ]
+  ]
+}

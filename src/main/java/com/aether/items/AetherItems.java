@@ -23,9 +23,9 @@ import net.minecraft.util.registry.Registry;
 
 public class AetherItems {
     public static final Item ZANITE_GEM, ZANITE_FRAGMENT, GRAVITITE_GEM, AMBROSIUM_SHARD, GOLDEN_AMBER, AECHOR_PETAL, SWET_BALL;
-    //public static final Item SKYROOT_STICK, VICTORY_MEDAL;
-    //public static final Item SKYROOT_PICKAXE, SKYROOT_AXE, SKYROOT_SHOVEL, SKYROOT_SWORD, SKYROOT_HOE;
-    //public static final Item HOLYSTONE_PICKAXE, HOLYSTONE_AXE, HOLYSTONE_SHOVEL, HOLYSTONE_SWORD, HOLYSTONE_HOE;
+    public static final Item SKYROOT_STICK;
+    public static final Item SKYROOT_PICKAXE, SKYROOT_AXE, SKYROOT_SHOVEL, SKYROOT_SWORD, SKYROOT_HOE;
+    public static final Item HOLYSTONE_PICKAXE, HOLYSTONE_AXE, HOLYSTONE_SHOVEL, HOLYSTONE_SWORD, HOLYSTONE_HOE;
     public static final Item ZANITE_PICKAXE, ZANITE_AXE, ZANITE_SHOVEL, ZANITE_SWORD, ZANITE_HOE;
     public static final Item GRAVITITE_PICKAXE, GRAVITITE_AXE, GRAVITITE_SHOVEL, GRAVITITE_SWORD, GRAVITITE_HOE;
     public static final Item VALKYRIE_PICKAXE, VALKYRIE_AXE, VALKYRIE_SHOVEL, VALKYRIE_HOE;
@@ -56,7 +56,7 @@ public class AetherItems {
     //    PUBLIC STATIC ITEM AETHER_TUNE, ASCENDING_DAWN, WELCOMING_SKIES, LEGACY;
 //    PUBLIC STATIC ITEM REPULSION_SHIELD;
     public static final Item LORE_BOOK;
-    public static final Item QUICKSOIL_VIAL, AERCLOUD_VIAL;
+  //  public static final Item QUICKSOIL_VIAL, AERCLOUD_VIAL;
     public static final Item AECHOR_PLANT_SPAWN_EGG, CHEST_MIMIC_SPAWN_EGG,
             COCKATRICE_SPAWN_EGG, AERBUNNY_SPAWN_EGG, FLYING_COW_SPAWN_EGG,
             MOA_SPAWN_EGG, PHYG_SPAWN_EGG, SHEEPUFF_SPAWN_EGG, GOLD_AERDUST, FROZEN_AERDUST;
@@ -75,14 +75,14 @@ public class AetherItems {
         GOLDEN_AMBER = register("golden_amber", new Item(RESOURCES));
         AECHOR_PETAL = register("aechor_petal", new Item(RESOURCES));
         SWET_BALL = register("swet_ball", new Item(RESOURCES));
-        //SKYROOT_STICK = register("skyroot_stick", new Item(RESOURCES));
+        SKYROOT_STICK = register("skyroot_stick", new Item(RESOURCES));
         GOLD_AERDUST = register("gold_aerdust", new Item(RESOURCES));
         FROZEN_AERDUST = register("frozen_aerdust", new Item(RESOURCES));
 
         // Tools
-        final Item.Settings TOOLS = new Item.Settings().group(AetherItemGroups.Tools);
-        final Item.Settings WEAPONS = new Item.Settings().group(AetherItemGroups.Tools);
-        /*SKYROOT_SHOVEL = register("skyroot_shovel", new AetherShovel(AetherTiers.Skyroot, TOOLS, 1.5F, -3.0F));
+        final Item.Settings TOOLS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        final Item.Settings WEAPONS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        SKYROOT_SHOVEL = register("skyroot_shovel", new AetherShovel(AetherTiers.Skyroot, TOOLS, 1.5F, -3.0F));
         SKYROOT_PICKAXE = register("skyroot_pickaxe", new AetherPickaxe(AetherTiers.Skyroot, TOOLS, 1, -2.8F));
         SKYROOT_AXE = register("skyroot_axe", new AetherAxe(AetherTiers.Skyroot, TOOLS, 6.0F, -3.2F));
         SKYROOT_SWORD = register("skyroot_sword", new AetherSword(AetherTiers.Skyroot, -2.4F, 3, WEAPONS));
@@ -93,7 +93,7 @@ public class AetherItems {
         HOLYSTONE_AXE = register("holystone_axe", new AetherAxe(AetherTiers.Holystone, TOOLS, 7.0F, -3.2F));
         HOLYSTONE_SWORD = register("holystone_sword", new AetherSword(AetherTiers.Holystone, -2.4F, 3, WEAPONS));
         HOLYSTONE_HOE = register("holystone_hoe", new AetherHoe(AetherTiers.Holystone, TOOLS, 2));
-        */
+        
         ZANITE_SHOVEL = register("zanite_shovel", new AetherShovel(AetherTiers.Zanite, TOOLS, 1.5F, -3.0F));
         ZANITE_PICKAXE = register("zanite_pickaxe", new AetherPickaxe(AetherTiers.Zanite, TOOLS,  1, -2.8F));
         ZANITE_AXE = register("zanite_axe", new AetherAxe(AetherTiers.Zanite, TOOLS, 6.0F, -3.1F));
@@ -179,8 +179,8 @@ public class AetherItems {
         SKYROOT_MILK_BUCKET = register("skyroot_milk_bucket", new SkyrootBucket(BUCKET));
         SKYROOT_POISON_BUCKET = register("skyroot_poison_bucket", new SkyrootBucket(BUCKET));
         SKYROOT_REMEDY_BUCKET = register("skyroot_remedy_bucket", new SkyrootBucket(BUCKET));
-        QUICKSOIL_VIAL = register("quicksoil_vial", new VialItem(Fluids.EMPTY, new Item.Settings().group(AetherItemGroups.Misc)));
-        AERCLOUD_VIAL = register("aercloud_vial", new VialItem(AetherBlocks.DENSE_AERCLOUD_STILL, new Item.Settings().group(AetherItemGroups.Misc)));
+  //    QUICKSOIL_VIAL = register("quicksoil_vial", new VialItem(Fluids.EMPTY, new Item.Settings().group(AetherItemGroups.Misc)));
+  //    AERCLOUD_VIAL = register("aercloud_vial", new VialItem(AetherBlocks.DENSE_AERCLOUD_STILL, new Item.Settings().group(AetherItemGroups.Misc)));
 
         CLOUD_PARACHUTE = register("cold_parachute", new Parachute(new Item.Settings().maxCount(1).group(AetherItemGroups.Misc)));
         GOLDEN_CLOUD_PARACHUTE = register("golden_parachute", new Parachute(new Item.Settings().maxCount(1).maxDamage(20).group(AetherItemGroups.Misc)));

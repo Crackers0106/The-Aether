@@ -13,7 +13,7 @@
             "whitelist": [
             ],
             "blacklist": [],
-            "tries": 25,
+            "tries": 32,
             "state_provider": {
               "state": {
                 "Name": "the_aether:aether_grass_plant"
