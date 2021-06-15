@@ -2,16 +2,14 @@ package com.aether.entities.passive;
 
 import com.aether.entities.AetherEntityTypes;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.ai.TargetFinder;
 import net.minecraft.entity.ai.control.FlightMoveControl;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 
@@ -40,11 +38,11 @@ public class AerwhaleEntity extends AetherAnimalEntity {
         //this.goalSelector.add(0, new WanderAroundGoal(this, 0.5));
     }
 
-
-    @Override
-    public boolean handleFallDamage(float fallDistance, float damageMultiplier) {
-        return false;
-    }
+    // TODO: Stubbed. Pending 1.17 rewrite.
+//    @Override
+//    public boolean handleFallDamage(float fallDistance, float damageMultiplier) {
+//        return false;
+//    }
 
 
     @Override
@@ -78,7 +76,7 @@ public class AerwhaleEntity extends AetherAnimalEntity {
 //                return false;
 //            }
 
-            Vec3d vec3d = this.getWanderTarget();
+            Vec3d vec3d = null;//this.getWanderTarget();
             if (vec3d == null) {
 //                System.out.println("Target was null");
                 return false;
@@ -91,10 +89,10 @@ public class AerwhaleEntity extends AetherAnimalEntity {
             }
         }
 
-        @Nullable
-        protected Vec3d getWanderTarget() {
-            return TargetFinder.findAirTarget(mob, 16, 6, Vec3d.ZERO, 180.0F, 20, 4);
-        }
+//        @Nullable
+//        protected Vec3d getWanderTarget() {
+//            return TargetFinder.findAirTarget(mob, 16, 6, Vec3d.ZERO, 180.0F, 20, 4);
+//        }
 
 
         public boolean shouldContinue() {

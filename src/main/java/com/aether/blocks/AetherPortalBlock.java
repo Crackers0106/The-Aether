@@ -12,7 +12,6 @@ import com.aether.client.rendering.particle.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -50,7 +49,7 @@ public class AetherPortalBlock extends CustomPortalBlock {
     }
 
     @Override
-    public Block getPortalBase(BlockView world, BlockPos pos) {
+    public Block getPortalBase(net.minecraft.world.BlockView world, BlockPos pos) {
         return Blocks.GLOWSTONE;
     }
 }

@@ -8,8 +8,8 @@ import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayers;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class FloatingBlockRenderer extends EntityRenderer<FloatingBlockEntity> {
 
-    public FloatingBlockRenderer(EntityRenderDispatcher renderManagerIn) {
+    public FloatingBlockRenderer(EntityRendererFactory.Context renderManagerIn) {
         super(renderManagerIn);
         this.shadowRadius = 0.5F;
     }

@@ -7,6 +7,8 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 
 public class SwetEntity extends SlimeEntity {
@@ -74,7 +76,7 @@ public class SwetEntity extends SlimeEntity {
     }
 
     @Override
-    public void remove(){
-        this.removed = true;
+    protected ParticleEffect getParticles() {
+        return ParticleTypes.SPLASH;
     }
 }

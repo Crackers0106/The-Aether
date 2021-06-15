@@ -1,11 +1,6 @@
 package com.aether.world.feature;
 
 import com.aether.Aether;
-import com.aether.world.feature.config.AercloudConfig;
-import com.aether.world.feature.generator.SkyrootTowerGenerator;
-import com.aether.world.feature.generator.WellGenerator;
-import com.aether.world.feature.structure.SkyrootTowerFeature;
-import com.aether.world.feature.structure.WellFeature;
 import com.aether.world.gen.decorator.CrystalTreeIslandDecorator;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.structure.StructurePieceType;
@@ -14,24 +9,27 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorConfig;
 import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
 
 public class AetherFeatures {
-    public static final StructurePieceType WELL_PIECE = register(WellGenerator.WellPiece::new, "well");
-    public static final StructurePieceType SKYROOT_TOWER_PIECE = register(SkyrootTowerGenerator.TowerPiece::new, "skyroot_tower");
-    public static Feature<AercloudConfig> DEFAULT_AERCLOUD;
+    // TODO: Stubbed. Pending 1.17 rewrite.
+//    public static final StructurePieceType WELL_PIECE = register(WellGenerator.WellPiece::new, "well");
+//    public static final StructurePieceType SKYROOT_TOWER_PIECE = register(SkyrootTowerGenerator.TowerPiece::new, "skyroot_tower");
 
     public static void registerFeatures() {
-        register("lake", new AetherLakeFeature(SingleStateFeatureConfig.CODEC));
-        DEFAULT_AERCLOUD = register("default_aercloud", new AercloudFeature());
+        register("lake", new AetherLakeFeature());
+        register("aercloud", new AercloudFeature());
         register("quicksoil", new QuicksoilFeature());
         register("crystal_tree_island", new CrystalTreeIslandFeature(DefaultFeatureConfig.CODEC));
 
         // Decorators
         register("crystal_tree_island", new CrystalTreeIslandDecorator(NopeDecoratorConfig.CODEC));
 
-        register("well", new WellFeature(DefaultFeatureConfig.CODEC));
-        register("skyroot_tower", new SkyrootTowerFeature(DefaultFeatureConfig.CODEC));
+        //register("well", new WellFeature(DefaultFeatureConfig.CODEC));
+        //register("skyroot_tower", new SkyrootTowerFeature(DefaultFeatureConfig.CODEC));
     }
 
     private static <T extends FeatureConfig> void register(String id, StructureFeature<T> structure) {

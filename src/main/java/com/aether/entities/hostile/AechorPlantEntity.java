@@ -14,7 +14,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -37,7 +37,7 @@ public class AechorPlantEntity extends AetherAnimalEntity implements RangedAttac
         this.sinage = this.random.nextFloat() * 6F;
         this.poisonRemaining = this.random.nextInt(4) + 2;
 
-        this.updatePosition(this.getX(), this.getY(), this.getZ());
+        this.setPosition(this.getX(), this.getY(), this.getZ());
     }
 
     public static DefaultAttributeContainer.Builder initAttributes() {
@@ -70,7 +70,7 @@ public class AechorPlantEntity extends AetherAnimalEntity implements RangedAttac
         if (this.sinage > 3.141593F * 2F) this.sinage -= (3.141593F * 2F);
 
         if (this.world.getBlockState(this.getBlockPos().down(1)).getBlock() != AetherBlocks.AETHER_GRASS_BLOCK)
-            this.destroy();
+            this.tickInVoid();
     }
 
     @Override
@@ -102,11 +102,11 @@ public class AechorPlantEntity extends AetherAnimalEntity implements RangedAttac
     public ActionResult interactMob(PlayerEntity playerIn, Hand handIn) {
         ItemStack heldItem = playerIn.getStackInHand(handIn);
 
-        if (heldItem.getItem() == AetherItems.SKYROOT_BUCKET && !playerIn.abilities.creativeMode) {
+        if (heldItem.getItem() == AetherItems.SKYROOT_BUCKET && !playerIn.getAbilities().creativeMode) {
             heldItem.setCount(heldItem.getCount() - 1);
 
             if (heldItem.isEmpty()) playerIn.setStackInHand(handIn, new ItemStack(AetherItems.SKYROOT_POISON_BUCKET));
-            else if (!playerIn.inventory.insertStack(new ItemStack(AetherItems.SKYROOT_POISON_BUCKET)))
+            else if (!playerIn.getInventory().insertStack(new ItemStack(AetherItems.SKYROOT_POISON_BUCKET)))
                 playerIn.dropItem(new ItemStack(AetherItems.SKYROOT_POISON_BUCKET), false);
 
             return ActionResult.SUCCESS;
@@ -116,19 +116,19 @@ public class AechorPlantEntity extends AetherAnimalEntity implements RangedAttac
     }
 
     @Override
-    public void takeKnockback(float strength, double xRatio, double zRatio) {
+    public void takeKnockback(double strength, double xRatio, double zRatio) {
         if (this.getHealth() <= 0.0F) super.takeKnockback(strength, xRatio, zRatio);
     }
 
     @Override
-    public void writeCustomDataToTag(CompoundTag compound) {
-        super.writeCustomDataToTag(compound);
+    public void writeCustomDataToNbt(NbtCompound compound) {
+        super.writeCustomDataToNbt(compound);
         compound.putInt("size", this.size);
     }
 
     @Override
-    public void readCustomDataFromTag(CompoundTag compound) {
-        super.readCustomDataFromTag(compound);
+    public void readCustomDataFromNbt(NbtCompound compound) {
+        super.readCustomDataFromNbt(compound);
         this.size = compound.getInt("size");
     }
 
