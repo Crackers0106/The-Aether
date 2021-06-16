@@ -14,10 +14,10 @@
       "item": "minecraft:cobblestone"
     },
     "I": {
-      "tag": "minecraft:iron_ingot"
+      "item": "minecraft:iron_ingot"
     },
     "R": {
-      "tag": "minecraft:redstone"
+      "item": "minecraft:redstone"
     }
   },
   "result": {
