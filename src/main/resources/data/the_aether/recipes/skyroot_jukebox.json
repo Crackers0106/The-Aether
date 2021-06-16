@@ -11,7 +11,7 @@
       "tag": "the_aether:aether_planks"
     },
     "D": {
-      "tag": "minecraft:diamond"
+      "item": "minecraft:diamond"
     }
   },
   "result": {
