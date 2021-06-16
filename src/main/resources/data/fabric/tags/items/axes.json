@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+  	"the_aether:skyroot_axe",
+	"the_aether:holystone_axe",
     "the_aether:zanite_axe",
     "the_aether:gravitite_axe",
     "the_aether:valkyrie_axe"

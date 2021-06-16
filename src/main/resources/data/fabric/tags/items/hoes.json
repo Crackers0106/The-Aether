@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+  	"the_aether:skyroot_hoe",
+	"the_aether:holystone_hoe",
     "the_aether:zanite_hoe",
     "the_aether:gravitite_hoe",
     "the_aether:valkyrie_hoe"

@@ -10,6 +10,7 @@
             "double_drops": "true"
           }
         },
+        "genType": "legacy",
         "flat": false,
         "maxRadius": 14,
         "y": 96
@@ -27,7 +28,7 @@
         "inner": {
           "type": "minecraft:chance",
           "config": {
-            "chance": 25
+            "chance": 60
           }
         }
       }

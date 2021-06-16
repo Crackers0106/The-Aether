@@ -129,7 +129,7 @@ public class AetherBlocks {
         AETHER_DIRT = register("aether_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).strength(0.3f).breakByTool(FabricToolTags.SHOVELS).breakByHand(true).sounds(BlockSoundGroup.GRAVEL)), buildingBlock());
 
         // We're going to be using this more than once, so we might as well store it in a variable.
-        final FabricBlockSettings GRASS_BLOCKS = FabricBlockSettings.of(Material.SOLID_ORGANIC).breakByTool(FabricToolTags.SHOVELS).breakByHand(true).materialColor(MaterialColor.CYAN).strength(0.4f).ticksRandomly().sounds(BlockSoundGroup.GRASS);
+        final FabricBlockSettings GRASS_BLOCKS = FabricBlockSettings.of(Material.SOLID_ORGANIC).breakByTool(FabricToolTags.SHOVELS).breakByHand(true).mapColor(MapColor.CYAN).strength(0.4f).ticksRandomly().sounds(BlockSoundGroup.GRASS);
         AETHER_GRASS_BLOCK = register("aether_grass", new AetherGrassBlock(GRASS_BLOCKS), buildingBlock());
 
         // Note that because we're changing the material color (which mutates the `FabricBlockSettings`), we want to
@@ -138,14 +138,14 @@ public class AetherBlocks {
         // Copying block settings is okay in this case, but copying the settings of another block is *not* something
         // you should do unless the new block is *directly related* to the block you're copying from. If the blocks just
         // happen to have several things in common, you should make a new settings object from scratch instead.
-        AETHER_ENCHANTED_GRASS = register("enchanted_aether_grass", new EnchantedAetherGrassBlock(FabricBlockSettings.copyOf(GRASS_BLOCKS).materialColor(MaterialColor.GOLD)), buildingBlock());
+        AETHER_ENCHANTED_GRASS = register("enchanted_aether_grass", new EnchantedAetherGrassBlock(FabricBlockSettings.copyOf(GRASS_BLOCKS).mapColor(MapColor.GOLD)), buildingBlock());
 
         final FabricBlockSettings GRASS = FabricBlockSettings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS);
         AMBROSIUM_ORE = register("ambrosium_ore", new OreBlock(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F)), buildingBlock());
-        BLUE_PORTAL = register("blue_portal", new AetherPortalBlock(AbstractBlock.Settings.of(Material.PORTAL, MaterialColor.BLUE).nonOpaque().noCollision().ticksRandomly().dropsNothing().blockVision(AetherBlocks::never).strength(-1.0f).sounds(BlockSoundGroup.GLASS).luminance((state) -> 11)));
-        HOLYSTONE = register("holystone", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
-        HOLYSTONE_BRICK = register("holystone_brick", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F).materialColor(MaterialColor.WHITE)), buildingBlock());
-        MOSSY_HOLYSTONE = register("mossy_holystone", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 6.0F).materialColor(MaterialColor.WHITE)), buildingBlock());
+        BLUE_PORTAL = register("blue_portal", new AetherPortalBlock(AbstractBlock.Settings.of(Material.PORTAL, MapColor.BLUE).nonOpaque().noCollision().ticksRandomly().dropsNothing().blockVision(AetherBlocks::never).strength(-1.0f).sounds(BlockSoundGroup.GLASS).luminance((state) -> 11)));
+        HOLYSTONE = register("holystone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        HOLYSTONE_BRICK = register("holystone_brick", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F).mapColor(MapColor.WHITE)), buildingBlock());
+        MOSSY_HOLYSTONE = register("mossy_holystone", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 6.0F).mapColor(MapColor.WHITE)), buildingBlock());
         ZANITE_ORE = register("zanite_ore", new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F)), buildingBlock());
         AEROGEL = register("aerogel", new Block(FabricBlockSettings.of(Material.SOIL).strength(1.0f, 2000.0f).sounds(BlockSoundGroup.GLASS).solidBlock(AetherBlocks::never).nonOpaque()), buildingBlock());
         AETHER_FARMLAND = register("aether_farmland", new AetherFarmlandBlock(FabricBlockSettings.of(Material.SOIL).ticksRandomly().strength(0.6f).sounds(BlockSoundGroup.GRAVEL).blockVision(AetherBlocks::always).suffocates(AetherBlocks::always)), buildingBlock());
@@ -167,13 +167,13 @@ public class AetherBlocks {
         CARVED_STAIRS = register("carved_stairs", new AetherStairsBlock(CARVED_STONE.getDefaultState()), buildingBlock());
         CARVED_WALL = register("carved_wall", new AetherWallBlock(CARVED_STONE.getDefaultState()), buildingBlock());
 //        CHEST_MIMIC = register("chest_mimic", null);
-        COLD_AERCLOUD = register("cold_aercloud", new ColdAercloudBlock(), buildingBlock());
-        BLUE_AERCLOUD = register("blue_aercloud", new BlueAercloudBlock(), buildingBlock());
-        PINK_AERCLOUD = register("pink_aercloud", new PinkAercloudBlock(), buildingBlock());
+        COLD_AERCLOUD = register("cold_aercloud", new BaseAercloudBlock(AbstractBlock.Settings.of(Material.ICE, MapColor.WHITE).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque()), buildingBlock());
+        BLUE_AERCLOUD = register("blue_aercloud", new BlueAercloudBlock(AbstractBlock.Settings.of(Material.ICE, MapColor.LIGHT_BLUE).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque()), buildingBlock());
+        PINK_AERCLOUD = register("pink_aercloud", new PinkAercloudBlock(AbstractBlock.Settings.of(Material.ICE, MapColor.PINK).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque()), buildingBlock());
         DECORATED_HOLIDAY_LEAVES = register("decorated_holiday_leaves", createLeavesBlock(), buildingBlock());
-        ALTAR = register("altar", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
-        FREEZER = register("freezer", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
-        GOLDEN_AERCLOUD = register("golden_aercloud", new GoldenAercloudBlock(), buildingBlock());
+        ALTAR = register("altar", new Block(FabricBlockSettings.of(Material.STONE, MapColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        FREEZER = register("freezer", new Block(FabricBlockSettings.of(Material.STONE, MapColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        GOLDEN_AERCLOUD = register("golden_aercloud", new GoldenAercloudBlock(AbstractBlock.Settings.of(Material.ICE, MapColor.YELLOW).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque()), buildingBlock());
         GRAVITITE_ORE = register("gravitite_ore", new FloatingBlock(false, FabricBlockSettings.of(Material.STONE).strength(5.0F).sounds(BlockSoundGroup.STONE).breakByTool(FabricToolTags.PICKAXES, 2)), buildingBlock());
 		ENCHANTED_GRAVITITE = register("enchanted_gravitite", new FloatingBlock(true, FabricBlockSettings.of(Material.METAL).strength(3.0f, -1.0f).sounds(BlockSoundGroup.METAL)), buildingBlock());
 
@@ -190,9 +190,9 @@ public class AetherBlocks {
         HOLYSTONE_SLAB = register("holystone_slab", new AetherSlabBlock(HOLYSTONE.getDefaultState()), buildingBlock());
         HOLYSTONE_STAIRS = register("holystone_stairs", new AetherStairsBlock(HOLYSTONE.getDefaultState()), buildingBlock());
         HOLYSTONE_WALL = register("holystone_wall", new AetherWallBlock(HOLYSTONE.getDefaultState()), buildingBlock());
-        ICESTONE = register("icestone", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.ICE).requiresTool().strength(3.0f, 3.0f).sounds(BlockSoundGroup.GLASS)), buildingBlock());
+        ICESTONE = register("icestone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.GRAY).requiresTool().strength(3.0f, 3.0f).sounds(BlockSoundGroup.GLASS)), buildingBlock());
 
-        INCUBATOR = register("incubator", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        INCUBATOR = register("incubator", new Block(FabricBlockSettings.of(Material.STONE, MapColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
         LIGHT_ANGELIC_STONE = register("light_angelic_stone", new Block(FabricBlockSettings.of(Material.STONE).hardness(0.5f).luminance(11).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
         LIGHT_ANGELIC_STONE_TRAP = register("light_angelic_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).luminance(11).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
 
@@ -203,12 +203,12 @@ public class AetherBlocks {
         MOSSY_HOLYSTONE_STAIRS = register("mossy_holystone_stairs", new AetherStairsBlock(MOSSY_HOLYSTONE.getDefaultState()), buildingBlock());
         MOSSY_HOLYSTONE_WALL = register("mossy_holystone_wall", new AetherWallBlock(MOSSY_HOLYSTONE.getDefaultState()), buildingBlock());
 
-        PILLAR = register("pillar", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.QUARTZ).requiresTool().hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
-        PILLAR_TOP = register("pillar_top", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.QUARTZ).hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        PILLAR = register("pillar", new Block(FabricBlockSettings.of(Material.STONE, MapColor.OFF_WHITE).requiresTool().hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        PILLAR_TOP = register("pillar_top", new Block(FabricBlockSettings.of(Material.STONE, MapColor.OFF_WHITE).hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
 
 //        POTTED_PURPLE_FLOWER = register("potted_purple_flower", createPottedBlock(PURPLE_FLOWER));
 //        POTTED_WHITE_FLOWER = register("potted_white_flower", createPottedBlock(WHITE_FLOWER));
-        PRESENT = register("present", new Block(FabricBlockSettings.of(Material.PLANT, MaterialColor.GREEN).requiresTool().strength(0.6f, 0.6f).sounds(BlockSoundGroup.GRASS)), buildingBlock());
+        PRESENT = register("present", new Block(FabricBlockSettings.of(Material.PLANT, MapColor.GREEN).requiresTool().strength(0.6f, 0.6f).sounds(BlockSoundGroup.GRASS)), buildingBlock());
 
 		PURPLE_FLOWER = register("purple_flower", new FlowerBlock(StatusEffects.INSTANT_DAMAGE, 1, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)), buildingBlock());
 		WHITE_FLOWER = register("white_flower", new FlowerBlock(StatusEffects.ABSORPTION, 1, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)), buildingBlock());
@@ -225,11 +225,11 @@ public class AetherBlocks {
         final Block.Settings SAPLINGS = AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS);
         SKYROOT_SAPLING = register("skyroot_sapling", new AetherSaplingBlock(new SkyrootSaplingGenerator(), SAPLINGS), buildingBlock());
         POTTED_SKYROOT_SAPLING = register("potted_skyroot_sapling", createPottedBlock(SKYROOT_SAPLING));
-        SKYROOT_LOG = register("skyroot_log", createLogBlock(MaterialColor.GREEN, MaterialColor.WOOD), buildingBlock());
-        STRIPPED_SKYROOT_LOG = register("stripped_skyroot_log", createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD), buildingBlock());
+        SKYROOT_LOG = register("skyroot_log", createLogBlock(MapColor.GREEN, MapColor.OAK_TAN), buildingBlock());
+        STRIPPED_SKYROOT_LOG = register("stripped_skyroot_log", createLogBlock(MapColor.OAK_TAN, MapColor.OAK_TAN), buildingBlock());
         SKYROOT_LEAVES = register("skyroot_leaves", createLeavesBlock(), buildingBlock());
 
-        final FabricBlockSettings SKYROOT_WOOD = FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD);
+        final FabricBlockSettings SKYROOT_WOOD = FabricBlockSettings.of(Material.WOOD, MapColor.OAK_TAN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD);
         SKYROOT_PLANKS = register("skyroot_planks", new Block(SKYROOT_WOOD), buildingBlock());
         SKYROOT_BOOKSHELF = register("skyroot_bookshelf", new Block(FabricBlockSettings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD)), buildingBlock());
         SKYROOT_FENCE = register("skyroot_fence", new FenceBlock(SKYROOT_WOOD), buildingBlock());
@@ -241,12 +241,12 @@ public class AetherBlocks {
 
         GOLDEN_OAK_SAPLING = register("golden_oak_sapling", new AetherSaplingBlock(new GoldenOakSaplingGenerator(), SAPLINGS), buildingBlock());
         POTTED_GOLDEN_OAK_SAPLING = register("potted_golden_oak_sapling", createPottedBlock(GOLDEN_OAK_SAPLING));
-        GOLDEN_OAK_LOG = register("golden_oak_log", createLogBlock(MaterialColor.WOOD, MaterialColor.RED), buildingBlock());
-        STRIPPED_GOLDEN_OAK_LOG = register("stripped_golden_oak_log", createLogBlock(MaterialColor.RED, MaterialColor.RED), buildingBlock());
+        GOLDEN_OAK_LOG = register("golden_oak_log", createLogBlock(MapColor.OAK_TAN, MapColor.RED), buildingBlock());
+        STRIPPED_GOLDEN_OAK_LOG = register("stripped_golden_oak_log", createLogBlock(MapColor.RED, MapColor.RED), buildingBlock());
         GOLDEN_OAK_LEAVES = register("golden_oak_leaves", createLeavesBlock(), buildingBlock());
 		CRYSTAL_LEAVES = register("crystal_leaves", createCrystalLeavesBlock(BlockSoundGroup.GLASS), buildingBlock());
         
-        SUN_ALTAR = register("sun_alter", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.RED).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        SUN_ALTAR = register("sun_alter", new Block(FabricBlockSettings.of(Material.STONE, MapColor.RED).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
         ZANITE_BLOCK = register("zanite_block", new Block(FabricBlockSettings.of(Material.METAL).strength(3.0f, -1.0f).sounds(BlockSoundGroup.METAL)), buildingBlock());
 //        BLOCK_OF_GRAVITITE = register("block_of_gravitite", new FloatingBlock(false, FabricBlockSettings.of(Material.METAL).strength(3.0f, -1.0f).sounds(BlockSoundGroup.METAL)), buildingBlock());
 
@@ -323,8 +323,8 @@ public class AetherBlocks {
         return Registry.register(Registry.BLOCK, Aether.locate(id), block);
     }
 
-    private static PillarBlock createLogBlock(MaterialColor topMaterialColor, MaterialColor sideMaterialColor) {
-        return new PillarBlock(AbstractBlock.Settings.of(Material.WOOD, (blockState) -> blockState.get(PillarBlock.AXIS) == Direction.Axis.Y ? topMaterialColor : sideMaterialColor).strength(2.0f).sounds(BlockSoundGroup.WOOD));
+    private static PillarBlock createLogBlock(MapColor topMapColor, MapColor sideMapColor) {
+        return new PillarBlock(AbstractBlock.Settings.of(Material.WOOD, (blockState) -> blockState.get(PillarBlock.AXIS) == Direction.Axis.Y ? topMapColor : sideMapColor).strength(2.0f).sounds(BlockSoundGroup.WOOD));
     }
 
     private static AetherLeavesBlock createLeavesBlock() {
@@ -336,7 +336,7 @@ public class AetherBlocks {
     }
 
     private static FabricBlockSettings createWisteriaHangerBlock(BlockSoundGroup sounds) {
-        return FabricBlockSettings.of(Material.SUPPORTED).strength(0.2f).noCollision().breakInstantly().sounds(sounds).nonOpaque().suffocates(AetherBlocks::never).blockVision(AetherBlocks::never);
+        return FabricBlockSettings.of(Material.DECORATION).strength(0.2f).noCollision().breakInstantly().sounds(sounds).nonOpaque().suffocates(AetherBlocks::never).blockVision(AetherBlocks::never);
     }
 
     private static AetherLeavesBlock createLeavesBlock(BlockSoundGroup sounds) {
@@ -352,7 +352,7 @@ public class AetherBlocks {
     }
 
     private static FlowerPotBlock createPottedBlock(Block sourceBlock) {
-        return new FlowerPotBlock(sourceBlock, AbstractBlock.Settings.of(Material.SUPPORTED).breakInstantly().nonOpaque());
+        return new FlowerPotBlock(sourceBlock, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
     }
 
     public static void init() {

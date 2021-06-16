@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+  	"the_aether:skyroot_shovel",
+	"the_aether:holystone_shovel",
     "the_aether:zanite_shovel",
     "the_aether:gravitite_shovel",
     "the_aether:valkyrie_shovel"

@@ -1,24 +1,20 @@
+
 package com.aether.world.feature.config;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.world.gen.feature.FeatureConfig;
 
-public class AercloudConfig implements FeatureConfig {
+import java.util.Optional;
 
-    private final BlockState state;
-    private final boolean isFlat;
-    private final int segmentCount;
-    private final int y;
+public class AercloudConfig extends DynamicConfiguration {
+    public final boolean isFlat;
+    public final int maxRadius;
+    public final int y;
 
-    public AercloudConfig(BlockState state, boolean isFlat, int segmentCount, int y) {
-        this.state = state;
+    public AercloudConfig(BlockState state, Optional<String> type, boolean isFlat, int segmentCount, int y) {
+        super(state, type);
         this.isFlat = isFlat;
-        this.segmentCount = segmentCount;
+        this.maxRadius = segmentCount;
         this.y = y;
-    }
-
-    public BlockState getCloudState() {
-        return this.state;
     }
 
     public int getY() {
@@ -30,7 +26,7 @@ public class AercloudConfig implements FeatureConfig {
     }
 
     public int maxSegments() {
-        return this.segmentCount;
+        return this.maxRadius;
     }
 
     public boolean isFlat() {

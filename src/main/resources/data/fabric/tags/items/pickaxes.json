@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+	"the_aether:skyroot_pickaxe",
+	"the_aether:holystone_pickaxe",
     "the_aether:zanite_pickaxe",
     "the_aether:gravitite_pickaxe",
     "the_aether:valkyrie_pickaxe"
