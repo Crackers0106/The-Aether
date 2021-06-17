@@ -11,7 +11,7 @@
       "tag": "the_aether:aether_planks"
     },
     "I": {
-      "tag": "minecraft:iron_ingot"
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {

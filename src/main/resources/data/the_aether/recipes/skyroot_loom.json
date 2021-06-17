@@ -7,7 +7,7 @@
   ],
   "key": {
     "T": {
-      "tag": "minecraft:string"
+      "item": "minecraft:string"
     },
     "S": {
       "tag": "the_aether:aether_planks"
