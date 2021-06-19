@@ -1,0 +1,37 @@
+{
+  "parent": "the_aether:enter_aether",
+  "display": {
+    "icon": {
+      "item": "the_aether:altar",
+    },
+    "title": {
+      "text": "Do you believe in magic?"
+    },
+    "description": {
+      "text": "Craft an Altar"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "stone_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "the_aether:altar"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "craft_altar"
+    ]
+  ]
+}
