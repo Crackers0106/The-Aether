@@ -2,7 +2,7 @@
   "parent": "the_aether:enter_aether",
   "display": {
     "icon": {
-      "item": "the_aether:altar",
+      "item": "the_aether:altar"
     },
     "title": {
       "text": "Do you believe in magic?"
@@ -16,7 +16,7 @@
     "hidden": false
   },
   "criteria": {
-    "stone_pickaxe": {
+    "craft_altar": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

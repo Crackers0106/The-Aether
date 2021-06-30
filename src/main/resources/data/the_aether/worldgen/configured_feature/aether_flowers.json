@@ -16,7 +16,7 @@
             "state_provider": {
               "entries": [
                 {
-                  "weight": 20,
+                  "weight": 19,
                   "data": {
                     "Name": "the_aether:purple_flower"
                   }

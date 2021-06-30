@@ -18,7 +18,7 @@
               "state": {
                 "Name": "the_aether:blueberry_bush",
                 "Properties": {
-                  "age": "3"
+                  "ripe": "true"
                 }
               },
               "type": "minecraft:simple_state_provider"

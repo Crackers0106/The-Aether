@@ -5,12 +5,11 @@ import com.aether.client.model.AetherArmorModels;
 import com.aether.client.model.AetherModelPredicates;
 import com.aether.client.rendering.block.AetherColorProvs;
 import com.aether.client.rendering.entity.AetherEntityRenderers;
-import com.aether.client.rendering.particle.AetherParticles;
+
 import com.aether.entities.AetherEntityTypes;
 import com.aether.entities.util.AetherMoaTypes;
 import com.aether.items.AetherItems;
 import com.aether.registry.TrinketSlotRegistry;
-import com.aether.util.NetworkingHell;
 import com.aether.world.dimension.AetherDimension;
 import com.aether.world.feature.AetherConfiguredFeatures;
 import com.aether.world.feature.AetherFeatures;
@@ -43,8 +42,6 @@ public class Aether implements ModInitializer, ClientModInitializer {
         AetherItems.init();
         AetherBlocks.init();
         AetherMoaTypes.init();
-        AetherParticles.init();
-        NetworkingHell.init();
 		FuelRegistry.INSTANCE.add(AetherItems.AMBROSIUM_SHARD, 500);
     }
 
@@ -57,8 +54,6 @@ public class Aether implements ModInitializer, ClientModInitializer {
         AetherArmorModels.registerArmorModels();
         AetherEntityRenderers.initClient();
         AetherBlocks.initClient();
-        AetherParticles.initClient();
         //AetherSounds.initializeClient();
-        NetworkingHell.initClient();
     }
 }

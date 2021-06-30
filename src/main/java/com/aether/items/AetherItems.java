@@ -80,25 +80,29 @@ public class AetherItems {
         FROZEN_AERDUST = register("frozen_aerdust", new Item(RESOURCES));
 
         // Tools
-        final Item.Settings TOOLS = new AetherItemSettings().group(AetherItemGroups.Tools);
-        final Item.Settings WEAPONS = new AetherItemSettings().group(AetherItemGroups.Tools);
-        SKYROOT_SHOVEL = register("skyroot_shovel", new AetherShovel(AetherTiers.Skyroot, TOOLS, 1.5F, -3.0F));
-        SKYROOT_PICKAXE = register("skyroot_pickaxe", new AetherPickaxe(AetherTiers.Skyroot, TOOLS, 1, -2.8F));
-        SKYROOT_AXE = register("skyroot_axe", new AetherAxe(AetherTiers.Skyroot, TOOLS, 6.0F, -3.2F));
-        SKYROOT_SWORD = register("skyroot_sword", new AetherSword(AetherTiers.Skyroot, -2.4F, 3, WEAPONS));
-        SKYROOT_HOE = register("skyroot_hoe", new AetherHoe(AetherTiers.Skyroot, TOOLS, 1));
+        final Item.Settings SKYROOT_TOOLS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        final Item.Settings SKYROOT_WEAPONS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        SKYROOT_SHOVEL = register("skyroot_shovel", new AetherShovel(AetherTiers.Skyroot, SKYROOT_TOOLS, 1.5F, -3.0F));
+        SKYROOT_PICKAXE = register("skyroot_pickaxe", new AetherPickaxe(AetherTiers.Skyroot, SKYROOT_TOOLS, 1, -2.8F));
+        SKYROOT_AXE = register("skyroot_axe", new AetherAxe(AetherTiers.Skyroot, SKYROOT_TOOLS, 6.0F, -3.2F));
+        SKYROOT_SWORD = register("skyroot_sword", new AetherSword(AetherTiers.Skyroot, -2.4F, 3, SKYROOT_WEAPONS));
+        SKYROOT_HOE = register("skyroot_hoe", new AetherHoe(AetherTiers.Skyroot, SKYROOT_TOOLS, 1));
 
-        HOLYSTONE_SHOVEL = register("holystone_shovel", new AetherShovel(AetherTiers.Holystone, TOOLS,1.5F, -3.0F));
-        HOLYSTONE_PICKAXE = register("holystone_pickaxe", new AetherPickaxe(AetherTiers.Holystone, TOOLS, 1, -2.8F));
-        HOLYSTONE_AXE = register("holystone_axe", new AetherAxe(AetherTiers.Holystone, TOOLS, 7.0F, -3.2F));
-        HOLYSTONE_SWORD = register("holystone_sword", new AetherSword(AetherTiers.Holystone, -2.4F, 3, WEAPONS));
-        HOLYSTONE_HOE = register("holystone_hoe", new AetherHoe(AetherTiers.Holystone, TOOLS, 2));
-        
-        ZANITE_SHOVEL = register("zanite_shovel", new AetherShovel(AetherTiers.Zanite, TOOLS, 1.5F, -3.0F));
-        ZANITE_PICKAXE = register("zanite_pickaxe", new AetherPickaxe(AetherTiers.Zanite, TOOLS,  1, -2.8F));
-        ZANITE_AXE = register("zanite_axe", new AetherAxe(AetherTiers.Zanite, TOOLS, 6.0F, -3.1F));
-        ZANITE_SWORD = register("zanite_sword", new AetherSword(AetherTiers.Zanite, -2.4F, 3, WEAPONS));
-        ZANITE_HOE = register("zanite_hoe", new AetherHoe(AetherTiers.Zanite, TOOLS, 3));
+        final Item.Settings HOLYSTONE_TOOLS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        final Item.Settings HOLYSTONE_WEAPONS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        HOLYSTONE_SHOVEL = register("holystone_shovel", new AetherShovel(AetherTiers.Holystone, HOLYSTONE_TOOLS,1.5F, -3.0F));
+        HOLYSTONE_PICKAXE = register("holystone_pickaxe", new AetherPickaxe(AetherTiers.Holystone, HOLYSTONE_TOOLS, 1, -2.8F));
+        HOLYSTONE_AXE = register("holystone_axe", new AetherAxe(AetherTiers.Holystone, HOLYSTONE_TOOLS, 7.0F, -3.2F));
+        HOLYSTONE_SWORD = register("holystone_sword", new AetherSword(AetherTiers.Holystone, -2.4F, 3, HOLYSTONE_WEAPONS));
+        HOLYSTONE_HOE = register("holystone_hoe", new AetherHoe(AetherTiers.Holystone, HOLYSTONE_TOOLS, 2));
+
+        final Item.Settings ZANITE_TOOLS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        final Item.Settings ZANITE_WEAPONS = new AetherItemSettings().group(AetherItemGroups.Tools);
+        ZANITE_SHOVEL = register("zanite_shovel", new AetherShovel(AetherTiers.Zanite, ZANITE_TOOLS, 1.5F, -3.0F));
+        ZANITE_PICKAXE = register("zanite_pickaxe", new AetherPickaxe(AetherTiers.Zanite, ZANITE_TOOLS,  1, -2.8F));
+        ZANITE_AXE = register("zanite_axe", new AetherAxe(AetherTiers.Zanite, ZANITE_TOOLS, 6.0F, -3.1F));
+        ZANITE_SWORD = register("zanite_sword", new AetherSword(AetherTiers.Zanite, -2.4F, 3, ZANITE_WEAPONS));
+        ZANITE_HOE = register("zanite_hoe", new AetherHoe(AetherTiers.Zanite, ZANITE_TOOLS, 3));
 
         final Item.Settings GRAVITITE_TOOLS = new AetherItemSettings().rarity(Rarity.RARE).group(AetherItemGroups.Tools);
         GRAVITITE_SHOVEL = register("gravitite_shovel", new AetherShovel(AetherTiers.Gravitite, GRAVITITE_TOOLS, 1.5F, -3.0F));
@@ -194,6 +198,7 @@ public class AetherItems {
 
 
         // Weapons
+        final Item.Settings WEAPONS = new AetherItemSettings().group(AetherItemGroups.Tools);
         final AetherItemSettings LOOT_WEAPON = new AetherItemSettings().rarity(AETHER_LOOT).group(AetherItemGroups.Tools);
         GOLDEN_DART = register("golden_dart", new Dart(new Item.Settings().group(AetherItemGroups.Tools)));
         ENCHANTED_DART = register("enchanted_dart", new Dart(new Item.Settings().rarity(Rarity.RARE).group(AetherItemGroups.Tools)));

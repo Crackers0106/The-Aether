@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "group": "note_block",
   "pattern": [
-    "SSS",
-    "SRS",
-    "SSS"
+    "###",
+    "#X#",
+    "###"
   ],
   "key": {
-    "S": {
+    "#": {
       "tag": "the_aether:aether_planks"
     },
-    "R": {
-      "tag": "minecraft:redstone"
+    "X": {
+      "item": "minecraft:redstone"
     }
   },
   "result": {

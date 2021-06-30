@@ -15,6 +15,7 @@
     "item.AxeItemMixin",
     "item.HoeItemMixin",
     "item.ItemMixin",
+	"item.ItemGroupMixin",
     "item.ItemStackMixin",
     "item.MapStateMixin",
     "item.ShovelItemMixin",
@@ -34,8 +35,10 @@
     "client.ItemStackMixin",
     "client.MapRendererMixin",
     "client.WorldRendererMixin",
+    "client.render.CloudRendererMixin",
     "client.render.BlockStateModelGeneratorMixin",
-    "client.render.MinecraftClientMixin"
+    "client.render.MinecraftClientMixin",
+	"client.render.ParticleManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

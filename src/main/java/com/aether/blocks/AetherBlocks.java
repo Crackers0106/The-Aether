@@ -55,7 +55,7 @@ public class AetherBlocks {
     public static final Block CARVED_SLAB;
     public static final Block CARVED_STAIRS;
     public static final Block CARVED_STONE;
-    public static final Block CARVED_STONE_TRAP;
+//    public static final Block CARVED_STONE_TRAP;
     public static final Block CARVED_WALL;
 //  public static final Block CHEST_MIMIC;
     public static final Block COLD_AERCLOUD;
@@ -69,7 +69,7 @@ public class AetherBlocks {
     public static final Block HELLFIRE_SLAB;
     public static final Block HELLFIRE_STAIRS;
     public static final Block HELLFIRE_STONE;
-    public static final Block HELLFIRE_STONE_TRAP;
+//    public static final Block HELLFIRE_STONE_TRAP;
     public static final Block HELLFIRE_WALL;
     public static final Block HOLIDAY_LEAVES;
     public static final Block HOLYSTONE;
@@ -83,9 +83,9 @@ public class AetherBlocks {
     public static final Block ICESTONE;
     public static final Block INCUBATOR;
     public static final Block LIGHT_ANGELIC_STONE;
-    public static final Block LIGHT_ANGELIC_STONE_TRAP;
+//    public static final Block LIGHT_ANGELIC_STONE_TRAP;
     public static final Block LIGHT_HELLFIRE_STONE;
-    public static final Block LIGHT_HELLFIRE_STONE_TRAP;
+//    public static final Block LIGHT_HELLFIRE_STONE_TRAP;
     public static final Block MOSSY_HOLYSTONE;
     public static final Block MOSSY_HOLYSTONE_SLAB;
     public static final Block MOSSY_HOLYSTONE_STAIRS;
@@ -98,7 +98,7 @@ public class AetherBlocks {
     public static final Block QUICKSOIL_GLASS;
     public static final Block QUICKSOIL_GLASS_PANE;
     public static final Block SENTRY_STONE;
-    public static final Block SENTRY_STONE_TRAP;
+//    public static final Block SENTRY_STONE_TRAP;
     public static final Block SKYROOT_BOOKSHELF;
     public static final Block SKYROOT_DOOR;
     public static final Block SKYROOT_FENCE;
@@ -162,7 +162,7 @@ public class AetherBlocks {
         ANGELIC_WALL = register("angelic_wall", new AetherWallBlock(ANGELIC_STONE.getDefaultState()), buildingBlock());
         BLUEBERRY_BUSH = register("blueberry_bush", new BlueberryBushBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(AetherBlocks::canSpawnOnLeaves).suffocates(AetherBlocks::never).blockVision(AetherBlocks::never).collidable(false)), buildingBlock());
         CARVED_STONE = register("carved_stone", new Block(FabricBlockSettings.of(Material.STONE).hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
-        CARVED_STONE_TRAP = register("carved_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
+//        CARVED_STONE_TRAP = register("carved_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
         CARVED_SLAB = register("carved_slab", new AetherSlabBlock(CARVED_STONE.getDefaultState()), buildingBlock());
         CARVED_STAIRS = register("carved_stairs", new AetherStairsBlock(CARVED_STONE.getDefaultState()), buildingBlock());
         CARVED_WALL = register("carved_wall", new AetherWallBlock(CARVED_STONE.getDefaultState()), buildingBlock());
@@ -179,7 +179,7 @@ public class AetherBlocks {
 
         final AbstractBlock.Settings HELLFIRE_STONES = FabricBlockSettings.of(Material.STONE).hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE);
         HELLFIRE_STONE = register("hellfire_stone", new Block(HELLFIRE_STONES), buildingBlock());
-        HELLFIRE_STONE_TRAP = register("hellfire_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
+//        HELLFIRE_STONE_TRAP = register("hellfire_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
         HELLFIRE_WALL = register("hellfire_wall", new AetherWallBlock(HELLFIRE_STONE.getDefaultState()), buildingBlock());
         HELLFIRE_SLAB = register("hellfire_slab", new AetherSlabBlock(HELLFIRE_STONE.getDefaultState()), buildingBlock());
         HELLFIRE_STAIRS = register("hellfire_stairs", new AetherStairsBlock(HELLFIRE_STONE.getDefaultState()), buildingBlock());
@@ -194,10 +194,10 @@ public class AetherBlocks {
 
         INCUBATOR = register("incubator", new Block(FabricBlockSettings.of(Material.STONE, MapColor.GRAY).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
         LIGHT_ANGELIC_STONE = register("light_angelic_stone", new Block(FabricBlockSettings.of(Material.STONE).hardness(0.5f).luminance(11).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
-        LIGHT_ANGELIC_STONE_TRAP = register("light_angelic_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).luminance(11).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
+//        LIGHT_ANGELIC_STONE_TRAP = register("light_angelic_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).luminance(11).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
 
         LIGHT_HELLFIRE_STONE = register("light_hellfire_stone", new Block(FabricBlockSettings.of(Material.STONE).hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
-        LIGHT_HELLFIRE_STONE_TRAP = register("light_hellfire_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
+//        LIGHT_HELLFIRE_STONE_TRAP = register("light_hellfire_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
 
         MOSSY_HOLYSTONE_SLAB = register("mossy_holystone_slab", new AetherSlabBlock(MOSSY_HOLYSTONE.getDefaultState()), buildingBlock());
         MOSSY_HOLYSTONE_STAIRS = register("mossy_holystone_stairs", new AetherStairsBlock(MOSSY_HOLYSTONE.getDefaultState()), buildingBlock());
@@ -213,13 +213,12 @@ public class AetherBlocks {
 		PURPLE_FLOWER = register("purple_flower", new FlowerBlock(StatusEffects.INSTANT_DAMAGE, 1, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)), buildingBlock());
 		WHITE_FLOWER = register("white_flower", new FlowerBlock(StatusEffects.ABSORPTION, 1, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)), buildingBlock());
         QUICKSOIL = register("quicksoil", new Block(FabricBlockSettings.of(Material.AGGREGATE).strength(0.5f, -1.0f).slipperiness(1.0F).velocityMultiplier(1.102F).sounds(BlockSoundGroup.SAND).breakByTool(FabricToolTags.SHOVELS)), buildingBlock());
-        QUICKSOIL_GLASS = register("quicksoil_glass", new GlassBlock(FabricBlockSettings.of(Material.GLASS).luminance(14).strength(0.2f, -1.0f).sounds(BlockSoundGroup.GLASS).nonOpaque().solidBlock(AetherBlocks::never)), buildingBlock());
-        QUICKSOIL_GLASS_PANE = register("quicksoil_glass_pane", new QuicksoilGlassPaneBlock(), buildingBlock());
-
+        QUICKSOIL_GLASS = register("quicksoil_glass", new GlassBlock(AbstractBlock.Settings.of(Material.GLASS).luminance(state -> 14).strength(0.2f, -1.0f).slipperiness(1.0F).velocityMultiplier(1.102F).sounds(BlockSoundGroup.GLASS).nonOpaque().solidBlock(AetherBlocks::never)), buildingBlock());
+        QUICKSOIL_GLASS_PANE = register("quicksoil_glass_pane", new PaneBlock(AbstractBlock.Settings.of(Material.GLASS).luminance(state -> 14).strength(0.2F, -1.0F).slipperiness(1.0F).velocityMultiplier(1.102F).sounds(BlockSoundGroup.GLASS).nonOpaque().solidBlock(AetherBlocks::never)), buildingBlock());
         final FabricBlockSettings SENTRY_STONES = FabricBlockSettings.of(Material.STONE).hardness(0.5f).resistance(1.0f).sounds(BlockSoundGroup.STONE);
 
         SENTRY_STONE = register("sentry_stone", new Block(SENTRY_STONES.luminance(ignored -> 10)), buildingBlock());
-        SENTRY_STONE_TRAP = register("sentry_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
+//        SENTRY_STONE_TRAP = register("sentry_stone_trap", new Block(FabricBlockSettings.of(Material.STONE).hardness(-1.0f).resistance(6000000.0f).sounds(BlockSoundGroup.STONE)));
 
 
         final Block.Settings SAPLINGS = AbstractBlock.Settings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS);
@@ -246,7 +245,7 @@ public class AetherBlocks {
         GOLDEN_OAK_LEAVES = register("golden_oak_leaves", createLeavesBlock(), buildingBlock());
 		CRYSTAL_LEAVES = register("crystal_leaves", createCrystalLeavesBlock(BlockSoundGroup.GLASS), buildingBlock());
         
-        SUN_ALTAR = register("sun_alter", new Block(FabricBlockSettings.of(Material.STONE, MapColor.RED).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
+        SUN_ALTAR = register("sun_altar", new Block(FabricBlockSettings.of(Material.STONE, MapColor.RED).requiresTool().strength(0.5f, 10.0f).sounds(BlockSoundGroup.STONE)), buildingBlock());
         ZANITE_BLOCK = register("zanite_block", new Block(FabricBlockSettings.of(Material.METAL).strength(3.0f, -1.0f).sounds(BlockSoundGroup.METAL)), buildingBlock());
 //        BLOCK_OF_GRAVITITE = register("block_of_gravitite", new FloatingBlock(false, FabricBlockSettings.of(Material.METAL).strength(3.0f, -1.0f).sounds(BlockSoundGroup.METAL)), buildingBlock());
 

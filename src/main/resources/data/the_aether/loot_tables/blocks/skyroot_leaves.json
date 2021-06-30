@@ -2,14 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
+      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:alternatives",
           "children": [
             {
               "type": "minecraft:item",
+              "name": "the_aether:skyroot_leaves",
               "conditions": [
                 {
                   "condition": "minecraft:alternative",
@@ -37,11 +38,11 @@
                     }
                   ]
                 }
-              ],
-              "name": "the_aether:skyroot_leaves"
+              ]
             },
             {
               "type": "minecraft:item",
+              "name": "the_aether:skyroot_sapling",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -56,19 +57,33 @@
                     0.1
                   ]
                 }
-              ],
-              "name": "the_aether:skyroot_sapling"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
+      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "the_aether:skyroot_stick",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              },
+              "add": false
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
           "conditions": [
             {
               "condition": "minecraft:table_bonus",
@@ -81,57 +96,9 @@
                 0.1
               ]
             }
-          ],
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "the_aether:skyroot_stick"
+          ]
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:inverted",
-          "term": {
-            "condition": "minecraft:alternative",
-            "terms": [
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "items": [
-                    "minecraft:shears"
-                  ]
-                }
-              },
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:silk_touch",
-                      "levels": {
-                        "min": 1
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
       "conditions": [
         {
           "condition": "minecraft:inverted",

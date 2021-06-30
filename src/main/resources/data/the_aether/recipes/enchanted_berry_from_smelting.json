@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "the_aether:blue_berry"
   },
-  "result": "the_aether:enchanted_berry",
+  "result": "the_aether:enchanted_blueberry",
   "experience": 0.0,
   "cookingtime": 300
 }

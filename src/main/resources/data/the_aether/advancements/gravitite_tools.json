@@ -22,7 +22,9 @@
       "conditions": {
         "items": [
           {
-            "item": "the_aether:gravitite_pickaxe"
+            "items": [
+              "the_aether:gravitite_pickaxe"
+            ]
           }
         ]
       }
@@ -32,7 +34,9 @@
       "conditions": {
         "items": [
           {
-            "item": "the_aether:gravitite_sword"
+            "items": [
+              "the_aether:gravitite_sword"
+            ]
           }
         ]
       }
@@ -42,7 +46,9 @@
       "conditions": {
         "items": [
           {
-            "item": "the_aether:gravitite_axe"
+            "items": [
+              "the_aether:gravitite_axe"
+            ]
           }
         ]
       }
@@ -52,7 +58,9 @@
       "conditions": {
         "items": [
           {
-            "item": "the_aether:gravitite_shovel"
+            "items": [
+              "the_aether:gravitite_shovel"
+            ]
           }
         ]
       }
